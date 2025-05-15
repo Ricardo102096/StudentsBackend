@@ -11,10 +11,11 @@ namespace TCAproject1.Controllers
     public class AddressController : ControllerBase
     {
         private readonly AppDbContext _context;
-
-        public AddressController(AppDbContext context)
+        private readonly ILogger<StudentController> _logger;
+        public AddressController(AppDbContext context, ILogger<StudentController> logger)
         {
             _context = context;
+            _logger = logger;
         }
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Address>>> GetAll()

@@ -11,10 +11,11 @@ namespace TCAproject1.Controllers
     public class PhoneController : ControllerBase
     {
         private readonly AppDbContext _context;
-
-        public PhoneController(AppDbContext context)
+        private readonly ILogger<StudentController> _logger;
+        public PhoneController(AppDbContext context, ILogger<StudentController> logger)
         {
             _context = context;
+            _logger = logger;
         }
         [HttpGet("by-student/{studentId}")]
         public async Task<ActionResult<IEnumerable<Phone>>> GetByStudent(int studentId)

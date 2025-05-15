@@ -7,9 +7,9 @@ using TCAproject1.Data;
 using TCAproject1.Helpers;
 using TCAproject1.Models;
 
-namespace TCAproject1.Controllers
+namespace TCAproject1.Controllers.V2
 {
-    [Route("api/[controller]")]
+    [Route("api/v2/[Controller]")]
     [ApiController]
     public class StudentController : ControllerBase
     {
@@ -21,11 +21,6 @@ namespace TCAproject1.Controllers
             _context = context;
             _validator = validator;
             _logger = logger;
-        }
-        [HttpGet("fail")]
-        public IActionResult Fail()
-        {
-            throw new Exception("Esto es una falla de prueba");
         }
         [HttpGet]
         public async Task<ActionResult<PagedResult<Student>>> GetAll(
